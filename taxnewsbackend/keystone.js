@@ -32,7 +32,7 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'User',
-	port: 4001,
+	"port": 4001,
 });
 
 // Load your project's Models
@@ -56,6 +56,7 @@ keystone.set('routes', require('./routes'));
 keystone.set('nav', {
 	users: 'users',
 	topStories: 'TopStories',
+	incomeTax: 'IncomeTax',
 });
 
 // Start Keystone to connect to your database and initialise the web server

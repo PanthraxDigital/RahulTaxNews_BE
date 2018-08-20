@@ -44,5 +44,9 @@ topStories.add({
 	author: { type: Types.Relationship, ref: 'User', require: true },
 });
 
-topStories.defaultColumns = 'title,subTitle,description,articleDate';
+topStories.defaultColumns = 'category,title,articleDate,author';
 topStories.register();
+/* NOTE : We will go with Single collection as :
+- we have similar fields
+- ease the Search Functionality, which is the major feature
+*/
