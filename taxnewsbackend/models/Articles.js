@@ -1,7 +1,7 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
-var topStories = new keystone.List('Articles');
+var articleList = new keystone.List('Articles');
 
 var myStorage = new keystone.Storage({
 	adapter: keystone.Storage.Adapters.FS,
@@ -11,7 +11,7 @@ var myStorage = new keystone.Storage({
 	},
 });
 
-topStories.add({
+articleList.add({
 	category: {
 		type: Types.Select,
 		required: true,
@@ -44,8 +44,8 @@ topStories.add({
 	author: { type: Types.Relationship, ref: 'User', require: true },
 });
 
-topStories.defaultColumns = 'category,title,articleDate,author';
-topStories.register();
+articleList.defaultColumns = 'category,title,articleDate,author';
+articleList.register();
 /* NOTE : We will go with Single collection as :
 - we have similar fields
 - ease the Search Functionality, which is the major feature

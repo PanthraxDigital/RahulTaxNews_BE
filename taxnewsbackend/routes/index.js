@@ -38,9 +38,10 @@ exports = module.exports = function (app) {
 	app.get('/', routes.views.index);
 
 	// API
-	app.get('/api/topStories', routes.api.topStoriesApi.getTopStories);
-	app.get('/api/incomeTax', routes.api.incomeTaxApi.getIncomeTax);
-	app.get('/api/:category', routes.api.articlelist.getArticleList);
+	app.get('/api/home', routes.api.home.getHomeDataList);
+	// app.get('/api/topStories', routes.api.topStoriesApi.getTopStories);
+	// app.get('/api/incomeTax', routes.api.incomeTaxApi.getIncomeTax);
+	app.get('/api/:category', routes.api.masterList.getArticleList);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
