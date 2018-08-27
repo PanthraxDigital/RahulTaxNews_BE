@@ -1,38 +1,23 @@
-var keystone = require('keystone');
-var articleList = keystone.list('Articles');
+let dataResult = [];
+var HomeDataResult = require('./homeDataResult');
 
+// Temporary we can hit Individual collection with Single API and then at the end would merge the result
+// SINGLE API > Muitple DB call > combine result > RESPONSE
 exports.getHomeDataList = function (req, res) {
-	articleList.model
-		.aggregate()
-		.group({ _id: { category: '$category' } })
-		.cursor({ batchSize: 1000 })
-		.exec(function (err, data) {
-			if (err) return console.log('err', err);
-			console.log('data', data);
+	HomeDataResult.getDataResult(1)
+		.then(function (result) {
+			dataResult.push(result);
+			return HomeDataResult.getDataResult(2);
+		}).then(function (result) {
+			dataResult.push(result);
+			res.json({
+				homeArticles: dataResult,
+			});
+		})
+		.catch(function (err) {
+			console.log(err);
 		});
+
+
 };
 
-// exports.getHomeDataList = function (req, res) {
-// 	articleList.model
-// 		.aggregate([
-// 			{ $group: { category: '$category', total: { $sum: 1 } } },
-// 		]).allowDiskUse(true).cursor({ batchSize: 1000 })
-// 		.exec(function (err, data) {
-// 			if (err) return res.json({ err: err });
-// 			res.json({
-// 				homeArticles: data,
-// 			});
-// 		});
-// };
-
-// articleList.model.find({})
-// 		.populate('createdBy', 'name')
-//		.sort({ articleDate: -1 })
-// 		.select('_id category title articleDate createdBy')
-// 		.exec(function (err, data) {
-// 			if (err) return res.json({ err: err });
-
-// 			res.json({
-// 				homeArticles: data,
-// 			});
-// 		});
