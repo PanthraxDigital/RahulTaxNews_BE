@@ -8,11 +8,14 @@ exports.getHomeDataList = function (req, res) {
 		.then(function (result) {
 			dataResult.push(result);
 			return HomeDataResult.getDataResult(2); // Income Tax
-		}).then(function (result) {
+		})
+		.then(function (result) {
 			dataResult.push(result);
 			return HomeDataResult.getDataResult(3); // GST
-		}).then(function (result) {
+		})
+		.then(function (result) {
 			dataResult.push(result);
+			res.send(200);
 			res.json({
 				homeArticles: dataResult,
 			});
@@ -20,7 +23,4 @@ exports.getHomeDataList = function (req, res) {
 		.catch(function (err) {
 			console.log(err);
 		});
-
-
 };
-

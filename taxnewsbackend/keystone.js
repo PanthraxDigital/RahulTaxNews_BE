@@ -35,6 +35,7 @@ keystone.init({
 	'port': 4001,
 });
 
+keystone.set('cors allow origin', true);
 // Load your project's Models
 keystone.import('models');
 

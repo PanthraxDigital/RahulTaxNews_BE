@@ -10,7 +10,7 @@ exports.getArticleList = function (req, res) {
 		.limit(20)
 		.exec(function (err, data) {
 			if (err) return res.json({ err: err });
-
+			res.send(200);
 			res.json({
 				articles: data,
 			});
