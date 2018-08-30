@@ -15,7 +15,7 @@ exports.getHomeDataList = function (req, res) {
 		})
 		.then(function (result) {
 			dataResult.push(result);
-			res.send(200);
+			// res.send(200);
 			res.json({
 				homeArticles: dataResult,
 			});
