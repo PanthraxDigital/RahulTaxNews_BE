@@ -1,11 +1,12 @@
 var HomeDataResult = require('./homeDataResult');
-
-
-// Temporary we can hit Individual collection with Single API and then at the end would merge the result
 // SINGLE API > Muitple DB call > combine result > RESPONSE
 exports.getHomeDataList = function (req, res) {
 	let dataResult = [];
-	HomeDataResult.getDataResult(1) // Top stories
+	HomeDataResult.getDataResult(0) // From the Desk
+		.then(function (result) {
+			dataResult.push(result);
+			return HomeDataResult.getDataResult(1); // Top Stories
+		})
 		.then(function (result) {
 			dataResult.push(result);
 			return HomeDataResult.getDataResult(2); // Income Tax

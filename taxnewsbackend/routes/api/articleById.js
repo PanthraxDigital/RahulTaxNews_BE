@@ -1,13 +1,12 @@
 var keystone = require('keystone');
 var articleList = keystone.list('Articles');
 
-exports.getArticleList = function (req, res) {
+exports.getArticleById = function (req, res) {
+	console.log('articleId ' + req.params.articleId);
 	articleList.model
-		.find({ category: req.params.category })
-		.sort('articleDate')
+		.findOne({ _id: req.params.articleId })
 		.populate('author', 'name') // Reference to User collection, and get only the Name of the User
-		.select('_id title subTitle articleDate author Image')
-		.limit(20)
+		.select('_id title subTitle articleDate author Image link description')
 		.exec(function (err, data) {
 			if (err) return res.json({ err: err });
 			res.json({

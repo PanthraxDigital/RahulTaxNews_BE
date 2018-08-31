@@ -17,6 +17,7 @@ articleList.add({
 		required: true,
 		initial: true,
 		options: [
+			{ value: '0', label: 'From the Desk' },
 			{ value: '1', label: 'TopStories' },
 			{ value: '2', label: 'IncomeTax' },
 			{ value: '3', label: 'GST' },
