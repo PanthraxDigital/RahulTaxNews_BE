@@ -26,4 +26,4 @@ topStories.add({
 });
 
 topStories.defaultColumns = 'title,subTitle,description,articleDate';
-topStories.register();
+// topStories.register();

@@ -26,4 +26,4 @@ incomeTax.add({
 });
 
 incomeTax.defaultColumns = 'title,subTitle,description,articleDate';
-incomeTax.register();
+// incomeTax.register();
