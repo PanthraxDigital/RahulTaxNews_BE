@@ -41,10 +41,9 @@ exports = module.exports = function (app) {
 	// API
 	app.all('/api*', keystone.middleware.cors);
 	app.get('/api/home', routes.api.home.getHomeDataList);
-	// app.get('/api/topStories', routes.api.topStoriesApi.getTopStories);
-	// app.get('/api/incomeTax', routes.api.incomeTaxApi.getIncomeTax);
-	app.get('/api/:category', routes.api.masterList.getArticleList);// /api/1
-	app.get('/api/:category/:articleId', routes.api.articleById.getArticleById);// 
+	app.get('/api/:category', routes.api.masterList.getArticleList); // /api/1
+	app.get('/api/:category/:articleId', routes.api.articleById.getArticleById);
+	app.get('/api/next/:category/:lastArticleDate', routes.api.masterList.getNextArticleList);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

@@ -38,7 +38,7 @@ articleList.add({
 	link: { type: Types.Text, require: false },
 	image: { type: Types.File, storage: myStorage, require: false },
 	articleDate: {
-		type: Types.Datetime,
+		type: Types.Date,
 		require: false,
 		default: Date.now,
 	},
