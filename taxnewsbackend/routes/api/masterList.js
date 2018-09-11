@@ -7,7 +7,7 @@ exports.getArticleList = function (req, res) {
 		.sort('-articleDate')
 		.populate('author', 'name') // Reference to User collection, and get only the Name of the User
 		.select('_id title subTitle articleDate author Image')
-		.limit(1)
+		.limit(20)
 		.exec(function (err, data) {
 			if (err) return res.json({ err: err });
 			res.json({
@@ -21,7 +21,7 @@ exports.getNextArticleList = (req, res) => {
 		.find({ category: req.params.category })
 		.where('articleDate')
 		.lt(req.params.lastArticleDate)
-		.limit(2)
+		.limit(20)
 		.sort('-articleDate')
 		.populate('author', 'name') // Reference to User collection, and get only the Name of the User
 		.select('_id title subTitle articleDate author Image')
