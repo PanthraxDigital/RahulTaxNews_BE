@@ -44,6 +44,7 @@ exports = module.exports = function (app) {
 	app.get('/api/:category', routes.api.masterList.getArticleList); // /api/1
 	app.get('/api/:category/:articleId', routes.api.articleById.getArticleById);
 	app.get('/api/next/:category/:lastArticleDate', routes.api.masterList.getNextArticleList);
+	app.post('/api/addNewsubscriber', routes.api.emailSubscribers.addNewSubscriber);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
