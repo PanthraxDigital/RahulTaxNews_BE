@@ -9,7 +9,7 @@
 
 exports.create = {
 	User: [
-		{ 'name.first': 'Rahul', 'name.last': 'Sureka', 'email': 'admin@taxnews.co.in', 'password': 'admin', 'isAdmin': true },
+		{ 'name.first': 'TaxKnowledge', 'name.last': 'Team', 'email': 'admin@taxknowledge.in', 'password': 'admin', 'isAdmin': true },
 	],
 };
 
