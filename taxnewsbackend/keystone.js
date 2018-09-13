@@ -32,7 +32,7 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'User',
-	'port': 4001,
+	'port': 4002,
 });
 keystone.set('signin logo', '../PDA_logo.png');
 
