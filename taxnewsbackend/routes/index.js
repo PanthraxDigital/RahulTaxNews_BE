@@ -42,8 +42,8 @@ exports = module.exports = function (app) {
 	app.all('/api*', keystone.middleware.cors);
 	app.get('/api/home', routes.api.home.getHomeDataList);
 	app.get('/api/:category', routes.api.masterList.getArticleList); // /api/1
-	app.get('/api/:category/:articleId', routes.api.articleById.getArticleByIdAndCategory); // /api/1/sfasdf287928379x
-	app.get('/api/article/:articleId', routes.api.articleById.getArticleById); // /api/1/sfasdf287928379x
+	app.get('/api/:category/:articleId', routes.api.articleById.getArticleByCategory); // /api/1/sfasdf287928379x
+	//app.get('/api/article/:articleId', routes.api.articleById.getArticleById); // /api/sfasdf287928379x
 	app.get('/api/next/:category/:lastArticleDate', routes.api.masterList.getNextArticleList);
 	app.post('/api/addNewsubscriber', routes.api.emailSubscribers.addNewSubscriber);
 
