@@ -36,7 +36,8 @@ articleList.add({
 	subTitle: { type: String, require: true },
 	description: { type: Types.Markdown, height: 500, require: true },
 	link: { type: Types.Text, require: false },
-	image: { type: Types.File, storage: myStorage, require: false },
+	// image: { type: Types.File, storage: myStorage, require: false },
+	image: { type: Types.Text, require: true },
 	articleDate: {
 		type: Types.Date,
 		require: false,

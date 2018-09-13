@@ -6,7 +6,7 @@ exports.getArticleList = function (req, res) {
 		.find({ category: req.params.category })
 		.sort('-articleDate')
 		.populate('author', 'name') // Reference to User collection, and get only the Name of the User
-		.select('_id title subTitle articleDate author Image')
+		.select('_id title subTitle articleDate author image')
 		.limit(20)
 		.exec(function (err, data) {
 			if (err) return res.json({ err: err });
@@ -24,7 +24,7 @@ exports.getNextArticleList = (req, res) => {
 		.limit(20)
 		.sort('-articleDate')
 		.populate('author', 'name') // Reference to User collection, and get only the Name of the User
-		.select('_id title subTitle articleDate author Image')
+		.select('_id title subTitle articleDate author image')
 		.exec(function (err, data) {
 			if (err) return res.json({ err: err });
 			res.json({
