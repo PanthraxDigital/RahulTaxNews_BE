@@ -2,7 +2,6 @@ var keystone = require('keystone');
 var articleList = keystone.list('Articles');
 
 exports.getArticleByCategory = function (req, res) {
-	console.log('category ' + req.params.category);
 	articleList.model
 		.find({ _id: req.params.articleId })
 		.where({ category: req.params.category })

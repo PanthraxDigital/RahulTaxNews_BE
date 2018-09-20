@@ -17,6 +17,10 @@ exports.getHomeDataList = function (req, res) {
 		})
 		.then(function (result) {
 			dataResult.push(result);
+			return HomeDataResult.getDataResult(12); // General Taxation
+		})
+		.then(function (result) {
+			dataResult.push(result);
 			res.json({
 				homeArticles: dataResult,
 			});
