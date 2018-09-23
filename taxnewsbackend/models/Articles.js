@@ -1,7 +1,9 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
-var articleList = new keystone.List('Articles');
+var articleList = new keystone.List('Articles', {
+	autokey: { path: 'slug', from: 'title', unique: true },
+});
 
 var myStorage = new keystone.Storage({
 	adapter: keystone.Storage.Adapters.FS,
@@ -33,21 +35,39 @@ articleList.add({
 			{ value: '13', label: 'More Others' },
 		],
 	},
-	title: { type: String, require: true, index: true, initial: true },
-	subTitle: { type: String, require: true },
-	description: { type: Types.Markdown, height: 500, require: true },
-	link: { type: Types.Text, require: false },
-	// image: { type: Types.File, storage: myStorage, require: false },
-	image: { type: Types.Text, require: true },
+	title: {
+		type: String,
+		required: true,
+		initial: true,
+	},
+	subTitle: {
+		type: String,
+		required: false,
+		initial: false,
+	},
+	description: {
+		type: Types.Html,
+		wysiwyg: true,
+		height: 400,
+	},
+	link: { type: Types.Text, required: false },
+	image: { type: Types.File, storage: myStorage, require: false },
 	articleDate: {
 		type: Types.Date,
-		require: false,
+		required: false,
 		default: Date.now,
 	},
-	author: { type: Types.Relationship, ref: 'User', require: true },
+
+	author: {
+		type: Types.Relationship,
+		ref: 'User',
+		required: false,
+	},
 });
 
 articleList.defaultColumns = 'category,title,articleDate,author';
+articleList.autocreate = true;
+articleList.perPage = 5;
 articleList.register();
 /* NOTE : We will go with Single collection as :
 - we have similar fields
