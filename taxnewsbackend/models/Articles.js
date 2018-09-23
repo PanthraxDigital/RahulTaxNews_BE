@@ -1,9 +1,7 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
-var articleList = new keystone.List('Articles', {
-	autokey: { path: 'slug', from: 'title', unique: true },
-});
+var articleList = new keystone.List('Articles');
 
 var myStorage = new keystone.Storage({
 	adapter: keystone.Storage.Adapters.FS,
@@ -51,7 +49,8 @@ articleList.add({
 		height: 400,
 	},
 	link: { type: Types.Text, required: false },
-	image: { type: Types.File, storage: myStorage, require: false },
+	// image: { type: Types.File, storage: myStorage, require: false },
+	image: { type: Types.CloudinaryImage },
 	articleDate: {
 		type: Types.Date,
 		required: false,
