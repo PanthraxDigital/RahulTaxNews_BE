@@ -20,7 +20,7 @@ keystone.init({
 	'view engine': '.hbs',
 	'cookie secret': 'e6f367201256d6b6959f222754a4ab27',
 	'cloudinary config':
-		'cloudinary://478672881457992:dlDMAWxV01PrDFfXxvwrDxOgEFs@pda', // contact@panthrax.com
+		'cloudinary://634379696918432:cV3z-u5CGfRkN2xbyzsyzdRy64w@taxknowledge', // info@taxknowledge.in
 	'custom engine': handlebars.create({
 		layoutsDir: 'templates/views/layouts',
 		partialsDir: 'templates/views/partials',

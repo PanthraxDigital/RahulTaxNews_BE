@@ -12,8 +12,9 @@ exports.getDataResult = function (_category) {
 				title: 1,
 				subTitle: 1,
 				category: 1,
-				image: 1,
+				uploadImage: 1,
 				articleDate: 1,
+				imageLink: 1,
 			})
 			.exec(function (err, data) {
 				if (err) return console.log('err', err);

@@ -48,9 +48,10 @@ articleList.add({
 		wysiwyg: true,
 		height: 400,
 	},
-	link: { type: Types.Text, required: false },
-	// image: { type: Types.File, storage: myStorage, require: false },
-	image: { type: Types.CloudinaryImage },
+	attachmentLink: { type: Types.Text, required: false },
+	// image: { type: Types.File, storage: myStorage, require: false }, // local storage
+	imageLink: { type: Types.Text, required: false },
+	uploadImage: { type: Types.CloudinaryImage },
 	articleDate: {
 		type: Types.Date,
 		required: false,
