@@ -54,6 +54,7 @@ exports = module.exports = function (app) {
 		'/api/addNewsubscriber',
 		routes.api.emailSubscribers.addNewSubscriber
 	);
+	app.get('/feed', routes.api.home.getFeedDataList);
 	// app.get('/api/search?', routes.api.textSearch.searchArticle);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
