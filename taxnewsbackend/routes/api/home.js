@@ -35,8 +35,10 @@ exports.getHomeDataList = function (req, res) {
 exports.getFeedDataList = function (req, res) {
 	let dataResult = [];
 	var feed = new RSS({
-		TITLE: 'Latest Tax News',
-		URL: 'http://www.taxknowledge.in/',
+		title: 'Latest Tax News',
+		description: 'Brushup your day with latest tax related news',
+		site_url: 'http://www.taxknowledge.in/',
+		author: 'TaxKnowledge Team',
 	});
 
 	HomeDataResult.getDataResult(0) // From the Desk
@@ -57,9 +59,8 @@ exports.getFeedDataList = function (req, res) {
 			dataResult.map(dataVal =>
 				dataVal.map((data, index) => {
 					return feed.item({
-						TITLE: data.title,
-						URL: 'http://www.taxknowledge.in/',
-						guid: index,
+						title: data.title,
+						description: data.subTitle,
 					});
 				})
 			);
