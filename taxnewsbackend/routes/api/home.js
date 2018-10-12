@@ -35,9 +35,8 @@ exports.getHomeDataList = function (req, res) {
 exports.getFeedDataList = function (req, res) {
 	let dataResult = [];
 	var feed = new RSS({
-		title: 'Latest Tax News',
-		description: 'Brushup your day with latest tax related news',
-		author: 'TaxKnowledge Team',
+		TITLE: 'Latest Tax News',
+		URL: 'http://www.taxknowledge.in/',
 	});
 
 	HomeDataResult.getDataResult(0) // From the Desk
@@ -55,14 +54,12 @@ exports.getFeedDataList = function (req, res) {
 		})
 		.then(function (result) {
 			dataResult.push(result);
-			return HomeDataResult.getDataResult(12); // General Taxation
-		})
-		.then(function (result) {
-			dataResult.push(result);
 			dataResult.map(dataVal =>
-				dataVal.map(data => {
+				dataVal.map((data, index) => {
 					return feed.item({
-						title: data.title,
+						TITLE: data.title,
+						URL: 'http://www.taxknowledge.in/',
+						guid: index,
 					});
 				})
 			);
