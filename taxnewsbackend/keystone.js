@@ -57,7 +57,15 @@ keystone.set('routes', require('./routes'));
 
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
-	'Write Article': 'Articles',
+	WriteArticle: 'Articles',
+	Analytics: [
+		{
+			label: 'Analytics',
+			key: 'Analytics',
+			path:
+				'https://analytics.google.com/analytics/web/?authuser=3#/report-home/a126288310w184968798p182262586',
+		},
+	],
 });
 
 // Start Keystone to connect to your database and initialise the web server
