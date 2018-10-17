@@ -56,6 +56,42 @@ exports.getFeedDataList = function (req, res) {
 		})
 		.then(function (result) {
 			dataResult.push(result);
+			return HomeDataResult.getDataResult(4); // VAT
+		})
+		.then(function (result) {
+			dataResult.push(result);
+			return HomeDataResult.getDataResult(5); // EXCISE
+		})
+		.then(function (result) {
+			dataResult.push(result);
+			return HomeDataResult.getDataResult(6); // Custom
+		})
+		.then(function (result) {
+			dataResult.push(result);
+			return HomeDataResult.getDataResult(7); // NBFC/RBI
+		})
+		.then(function (result) {
+			dataResult.push(result);
+			return HomeDataResult.getDataResult(8); // SEBI
+		})
+		.then(function (result) {
+			dataResult.push(result);
+			return HomeDataResult.getDataResult(9); // Company Law
+		})
+		.then(function (result) {
+			dataResult.push(result);
+			return HomeDataResult.getDataResult(11); // Finance ACT & Budget
+		})
+		.then(function (result) {
+			dataResult.push(result);
+			return HomeDataResult.getDataResult(12); // General Taxation
+		})
+		.then(function (result) {
+			dataResult.push(result);
+			return HomeDataResult.getDataResult(13); // More Others
+		})
+		.then(function (result) {
+			dataResult.push(result);
 			dataResult.map(dataVal =>
 				dataVal.map((data, index) => {
 					return feed.item({
