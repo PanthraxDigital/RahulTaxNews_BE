@@ -1,6 +1,5 @@
 var HomeDataResult = require('./homeDataResult');
 var RSSFactory = require('rss');
-var commonUtility = require('../commonUtility');
 
 // SINGLE API > Muitple DB call > combine result > RESPONSE
 exports.getHomeDataList = function (req, res) {
@@ -43,14 +42,10 @@ exports.getFeedDataList = function (req, res) {
 
 	HomeDataResult.getDataResult(0) // From the Desk
 		.then(function (result) {
-			// console.log('val ' + new commonUtility.urlPath(result, 0));
-			// dataResult.push(new commonUtility.urlPath(result, 0));
 			dataResult[0] = result;
 			return HomeDataResult.getDataResult(1); // Top Stories
 		})
 		.then(function (result) {
-			// console.log('val 1 ' + new commonUtility.urlPath(result, 1));
-			// dataResult.push(new commonUtility.urlPath(result, 1));
 			dataResult[1] = result;
 			return HomeDataResult.getDataResult(2); // Income Tax
 		})
