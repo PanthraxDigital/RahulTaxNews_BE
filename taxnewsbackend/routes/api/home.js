@@ -37,7 +37,7 @@ exports.getFeedDataList = function (req, res) {
 	var feed = new RSSFactory({
 		title: 'Latest Tax News',
 		description: 'Brushup your day with latest tax related news',
-		site_url: 'http://www.taxknowledge.in/',
+		site_url: 'http://www.taxknowledge.in',
 	});
 
 	HomeDataResult.getDataResult(0) // From the Desk
