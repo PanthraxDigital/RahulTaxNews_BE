@@ -1,5 +1,6 @@
 var HomeDataResult = require('./homeDataResult');
 var RSSFactory = require('rss');
+var commonUtility = require('../commonUtility');
 
 // SINGLE API > Muitple DB call > combine result > RESPONSE
 exports.getHomeDataList = function (req, res) {
@@ -42,61 +43,66 @@ exports.getFeedDataList = function (req, res) {
 
 	HomeDataResult.getDataResult(0) // From the Desk
 		.then(function (result) {
-			dataResult.push(result);
+			// console.log('val ' + new commonUtility.urlPath(result, 0));
+			// dataResult.push(new commonUtility.urlPath(result, 0));
+			dataResult[0] = result;
 			return HomeDataResult.getDataResult(1); // Top Stories
 		})
 		.then(function (result) {
-			dataResult.push(result);
+			// console.log('val 1 ' + new commonUtility.urlPath(result, 1));
+			// dataResult.push(new commonUtility.urlPath(result, 1));
+			dataResult[1] = result;
 			return HomeDataResult.getDataResult(2); // Income Tax
 		})
 		.then(function (result) {
-			dataResult.push(result);
+			dataResult[2] = result;
 			return HomeDataResult.getDataResult(3); // GST
 		})
 		.then(function (result) {
-			dataResult.push(result);
+			dataResult[3] = result;
 			return HomeDataResult.getDataResult(4); // VAT
 		})
 		.then(function (result) {
-			dataResult.push(result);
+			dataResult[4] = result;
 			return HomeDataResult.getDataResult(5); // EXCISE
 		})
 		.then(function (result) {
-			dataResult.push(result);
+			dataResult[5] = result;
 			return HomeDataResult.getDataResult(6); // Custom
 		})
 		.then(function (result) {
-			dataResult.push(result);
+			dataResult[6] = result;
 			return HomeDataResult.getDataResult(7); // NBFC/RBI
 		})
 		.then(function (result) {
-			dataResult.push(result);
+			dataResult[7] = result;
 			return HomeDataResult.getDataResult(8); // SEBI
 		})
 		.then(function (result) {
-			dataResult.push(result);
+			dataResult[8] = result;
 			return HomeDataResult.getDataResult(9); // Company Law
 		})
 		.then(function (result) {
-			dataResult.push(result);
+			dataResult[10] = result;
 			return HomeDataResult.getDataResult(11); // Finance ACT & Budget
 		})
 		.then(function (result) {
-			dataResult.push(result);
+			dataResult[11] = result;
 			return HomeDataResult.getDataResult(12); // General Taxation
 		})
 		.then(function (result) {
-			dataResult.push(result);
+			dataResult[12] = result;
 			return HomeDataResult.getDataResult(13); // More Others
 		})
 		.then(function (result) {
-			dataResult.push(result);
+			dataResult[13] = result;
 			dataResult.map(dataVal =>
 				dataVal.map((data, index) => {
 					return feed.item({
 						title: data.title,
 						description: data.subTitle,
 						date: data.articleDate,
+						url: `${getArticleURL(index)}/${data._id}`,
 					});
 				})
 			);
@@ -107,3 +113,36 @@ exports.getFeedDataList = function (req, res) {
 			console.log(err);
 		});
 };
+
+function getArticleURL (_index) {
+	switch (_index) {
+		case 0:
+			return '/from-desk';
+		case 1:
+			return '/top-stories';
+		case 2:
+			return '/income-tax';
+		case 3:
+			return '/gst';
+		case 4:
+			return '/vat-cst';
+		case 5:
+			return '/excise';
+		case 6:
+			return '/custom';
+		case 7:
+			return '/nbfc-rbi';
+		case 8:
+			return '/sebi';
+		case 9:
+			return '/roc-company-law';
+		case 10:
+			return '/jobs';
+		case 11:
+			return '/finance-budget';
+		case 12:
+			return 'generalTax';
+		case 13:
+			return '/others';
+	}
+}
