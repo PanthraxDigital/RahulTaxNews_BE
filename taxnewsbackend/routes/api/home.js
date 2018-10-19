@@ -112,32 +112,32 @@ exports.getFeedDataList = function (req, res) {
 function getArticleURL (_index) {
 	switch (_index) {
 		case 0:
-			return '/from-desk';
+			return 'from-desk';
 		case 1:
-			return '/top-stories';
+			return 'top-stories';
 		case 2:
-			return '/income-tax';
+			return 'income-tax';
 		case 3:
-			return '/gst';
+			return 'gst';
 		case 4:
-			return '/vat-cst';
+			return 'vat-cst';
 		case 5:
-			return '/excise';
+			return 'excise';
 		case 6:
-			return '/custom';
+			return 'custom';
 		case 7:
-			return '/nbfc-rbi';
+			return 'nbfc-rbi';
 		case 8:
-			return '/sebi';
+			return 'sebi';
 		case 9:
-			return '/roc-company-law';
+			return 'roc-company-law';
 		case 10:
-			return '/jobs';
+			return 'jobs';
 		case 11:
-			return '/finance-budget';
+			return 'finance-budget';
 		case 12:
 			return 'generalTax';
 		case 13:
-			return '/others';
+			return 'others';
 	}
 }
