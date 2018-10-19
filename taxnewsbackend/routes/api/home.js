@@ -97,7 +97,7 @@ exports.getFeedDataList = function (req, res) {
 						title: data.title,
 						description: data.subTitle,
 						date: data.articleDate,
-						url: `${getArticleURL(index)}/${data._id}`,
+						url: `http://www.taxknowledge.in/${getArticleURL(index)}/${data._id}`,
 					});
 				})
 			);
