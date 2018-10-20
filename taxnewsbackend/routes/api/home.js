@@ -41,54 +41,54 @@ exports.getFeedDataList = function (req, res) {
 		pubDate: new Date(),
 	});
 
-	HomeDataResult.getDataResult(0) // From the Desk
+	HomeDataResult.getFeedDataResult(0) // From the Desk
 		.then(function (result) {
 			dataResult[0] = result;
-			return HomeDataResult.getDataResult(1); // Top Stories
+			return HomeDataResult.getFeedDataResult(1); // Top Stories
 		})
 		.then(function (result) {
 			dataResult[1] = result;
-			return HomeDataResult.getDataResult(2); // Income Tax
+			return HomeDataResult.getFeedDataResult(2); // Income Tax
 		})
 		.then(function (result) {
 			dataResult[2] = result;
-			return HomeDataResult.getDataResult(3); // GST
+			return HomeDataResult.getFeedDataResult(3); // GST
 		})
 		.then(function (result) {
 			dataResult[3] = result;
-			return HomeDataResult.getDataResult(4); // VAT
+			return HomeDataResult.getFeedDataResult(4); // VAT
 		})
 		.then(function (result) {
 			dataResult[4] = result;
-			return HomeDataResult.getDataResult(5); // EXCISE
+			return HomeDataResult.getFeedDataResult(5); // EXCISE
 		})
 		.then(function (result) {
 			dataResult[5] = result;
-			return HomeDataResult.getDataResult(6); // Custom
+			return HomeDataResult.getFeedDataResult(6); // Custom
 		})
 		.then(function (result) {
 			dataResult[6] = result;
-			return HomeDataResult.getDataResult(7); // NBFC/RBI
+			return HomeDataResult.getFeedDataResult(7); // NBFC/RBI
 		})
 		.then(function (result) {
 			dataResult[7] = result;
-			return HomeDataResult.getDataResult(8); // SEBI
+			return HomeDataResult.getFeedDataResult(8); // SEBI
 		})
 		.then(function (result) {
 			dataResult[8] = result;
-			return HomeDataResult.getDataResult(9); // Company Law
+			return HomeDataResult.getFeedDataResult(9); // Company Law
 		})
 		.then(function (result) {
 			dataResult[10] = result;
-			return HomeDataResult.getDataResult(11); // Finance ACT & Budget
+			return HomeDataResult.getFeedDataResult(11); // Finance ACT & Budget
 		})
 		.then(function (result) {
 			dataResult[11] = result;
-			return HomeDataResult.getDataResult(12); // General Taxation
+			return HomeDataResult.getFeedDataResult(12); // General Taxation
 		})
 		.then(function (result) {
 			dataResult[12] = result;
-			return HomeDataResult.getDataResult(13); // More Others
+			return HomeDataResult.getFeedDataResult(13); // More Others
 		})
 		.then(function (result) {
 			dataResult[13] = result;
