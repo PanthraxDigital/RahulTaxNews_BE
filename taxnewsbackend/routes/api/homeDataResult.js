@@ -26,7 +26,7 @@ exports.getDataResult = function (_category) {
 exports.getFeedDataResult = function (_category) {
 	return new Promise(function (resolve) {
 		articleList.model
-			.find({ category: _category, articleDate: { $gte: new Date() } })
+			.find({ category: _category, articleDate: { $eq: new Date() } })
 			.sort({ articleDate: -1 }) // descending order
 			.limit(4) // top 4 (TODO : ADS)
 			.select({
