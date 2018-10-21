@@ -1,5 +1,6 @@
 var HomeDataResult = require('./homeDataResult');
 var RSSFactory = require('rss');
+var moment = require('moment');
 
 // SINGLE API > Muitple DB call > combine result > RESPONSE
 exports.getHomeDataList = function (req, res) {
@@ -32,13 +33,14 @@ exports.getHomeDataList = function (req, res) {
 		});
 };
 
+// Get Feed Data list
 exports.getFeedDataList = function (req, res) {
 	let dataResult = [];
 	var feed = new RSSFactory({
 		title: 'Latest Tax News from Taxknowledge Team',
 		description: 'Brushup your day with latest tax related news',
 		site_url: 'http://www.taxknowledge.in/',
-		pubDate: new Date(),
+		pubDate: moment().format(),
 	});
 
 	HomeDataResult.getFeedDataResult(0) // From the Desk
