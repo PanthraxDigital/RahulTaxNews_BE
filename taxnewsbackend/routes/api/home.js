@@ -37,7 +37,7 @@ exports.getHomeDataList = function (req, res) {
 exports.getFeedDataList = function (req, res) {
 	let dataResult = [];
 	var feed = new RSSFactory({
-		title: 'Latest Tax News from Taxknowledge Team',
+		title: 'Taxknowledge Team',
 		description: 'Brushup your day with latest tax related news',
 		site_url: 'http://www.taxknowledge.in/',
 		pubDate: moment().format(),
