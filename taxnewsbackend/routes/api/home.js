@@ -98,7 +98,7 @@ exports.getFeedDataList = function (req, res) {
 				dataVal.map((data, index) => {
 					return feed.item({
 						title: data.title,
-						description: data.subTitle.toString().substring(0, 300),
+						description: data.subTitle.toString().substring(0, 250),
 						date: data.articleDate,
 						url: `http://www.taxknowledge.in${getArticleURL(parseInt(data.category))}/${data._id}`,
 					});
