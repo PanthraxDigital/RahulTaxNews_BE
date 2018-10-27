@@ -26,8 +26,11 @@ exports.getDataResult = function (_category) {
 exports.getFeedDataResult = function (_category) {
 	let year = new Date().getFullYear();
 	let month = new Date().getMonth() + 1;
-	let date = new Date().getDate();
-	let dateVal = new Date(year + '-' + month + '-' + date).toISOString().slice(0, 10) + ' 00:00:00.000';
+	let date = new Date().getDate() - 1;
+	let dateVal
+		= new Date(year + '-' + month + '-' + date).toISOString().slice(0, 10)
+		+ ' 00:00:00.000';
+	console.log('date ' + dateVal);
 
 	return new Promise(function (resolve) {
 		articleList.model
