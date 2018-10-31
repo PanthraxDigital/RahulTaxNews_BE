@@ -1,7 +1,7 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
-var articleList = new keystone.List('Articles');
+var articleList = new keystone.List('Articles', { perPage: 20 });
 
 var myStorage = new keystone.Storage({
 	adapter: keystone.Storage.Adapters.FS,
@@ -67,7 +67,7 @@ articleList.add({
 
 articleList.defaultColumns = 'category,title,articleDate,author';
 articleList.autocreate = true;
-articleList.perPage = 5;
+articleList.defaultSort = '-articleDate';
 articleList.register();
 /* NOTE : We will go with Single collection as :
 - we have similar fields

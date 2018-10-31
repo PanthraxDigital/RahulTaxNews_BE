@@ -66,6 +66,14 @@ keystone.set('nav', {
 				'https://analytics.google.com/analytics/web/?authuser=3#/report-home/a126288310w184968798p182262586',
 		},
 	],
+	Newsletter: [
+		{
+			label: 'NewsLetter',
+			key: 'NewsLetter',
+			path:
+				'https://login.mailchimp.com/?referrer=%2F%3F_ga%3D2.61668140.1290825636.1540977765-73805725.1540977765&wcookie=8a925d3cbca88068363d',
+		},
+	],
 });
 
 // Start Keystone to connect to your database and initialise the web server

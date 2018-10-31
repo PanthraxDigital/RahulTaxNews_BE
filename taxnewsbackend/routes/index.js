@@ -50,10 +50,10 @@ exports = module.exports = function (app) {
 		'/api/next/:category/:lastArticleDate',
 		routes.api.masterList.getNextArticleList
 	);
-	app.post(
-		'/api/addNewsubscriber',
-		routes.api.emailSubscribers.addNewSubscriber
-	);
+	// app.post(
+	// 	'/api/addNewsubscriber',
+	// 	routes.api.emailSubscribers.addNewSubscriber
+	// );
 	app.get('/feed', routes.api.home.getFeedDataList);
 	// app.get('/api/search?', routes.api.textSearch.searchArticle);
 
