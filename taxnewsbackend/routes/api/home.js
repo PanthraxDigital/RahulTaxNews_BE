@@ -135,7 +135,7 @@ function getArticleURL (_index) {
 		case 9:
 			return '/roc-company-law';
 		case 10:
-			return '/jobs';
+			return '/icai';
 		case 11:
 			return '/finance-budget';
 		case 12:

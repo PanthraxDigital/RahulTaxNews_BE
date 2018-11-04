@@ -27,7 +27,7 @@ articleList.add({
 			{ value: '7', label: 'NBFC/RBI' },
 			{ value: '8', label: 'SEBI' },
 			{ value: '9', label: 'Company Law' },
-			{ value: '10', label: 'Jobs' },
+			{ value: '10', label: 'ICAI' },
 			{ value: '11', label: 'Finance ACT & Budget' },
 			{ value: '12', label: 'General Taxation' },
 			{ value: '13', label: 'More Others' },
