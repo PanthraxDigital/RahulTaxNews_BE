@@ -11,12 +11,12 @@ var handlebars = require('express-handlebars');
 // and documentation.
 
 keystone.init({
-	"name": 'TaxNewsBackend',
-	"brand": 'TaxNewsBackend',
-	"sass": 'public',
-	"static": 'public',
-	"favicon": 'public/favicon.ico',
-	"views": 'templates/views',
+	'name': 'TaxKnowledge Admin',
+	'brand': 'TaxKnowledge Admin',
+	'sass': 'public',
+	'static': 'public',
+	'favicon': 'public/favicon.ico',
+	'views': 'templates/views',
 	'view engine': '.hbs',
 	'cookie secret': 'e6f367201256d6b6959f222754a4ab27',
 	'cloudinary config':
@@ -29,12 +29,12 @@ keystone.init({
 		extname: '.hbs',
 	}).engine,
 
-	"emails": 'templates/emails',
+	'emails': 'templates/emails',
 	'auto update': true,
-	"session": true,
-	"auth": true,
+	'session': true,
+	'auth': true,
 	'user model': 'User',
-	"port": 4002,
+	'port': 4002,
 });
 keystone.set('signin logo', '../PDA_logo.png');
 
