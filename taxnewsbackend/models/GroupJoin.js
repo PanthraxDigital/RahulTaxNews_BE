@@ -9,8 +9,8 @@ groupJoin.add({
 		required: true,
 		initial: true,
 		options: [
-			{ value: 'WhatsApp', label: 'WhatsApp' },
-			{ value: 'Telegram', label: 'Telegram' },
+			{ value: '0', label: 'WhatsApp' },
+			{ value: '1', label: 'Telegram' },
 		],
 	},
 	link: {

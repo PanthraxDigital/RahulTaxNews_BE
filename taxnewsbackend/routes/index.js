@@ -40,6 +40,13 @@ exports = module.exports = function (app) {
 
 	// API
 	app.all('/api*', keystone.middleware.cors);
+	app.options('/api*', function (req, res) {
+		res.header(
+			'Access-Control-Allow-Headers',
+			'Content-Type, Authorization, X-XSRF-TOKEN'
+		);
+		res.sendStatus(200);
+	});
 	app.get('/api/home', routes.api.home.getHomeDataList);
 	app.get('/api/:category', routes.api.masterList.getArticleList); // /api/1
 	app.get(
