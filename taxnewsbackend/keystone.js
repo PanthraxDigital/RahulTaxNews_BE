@@ -11,7 +11,7 @@ var handlebars = require('express-handlebars');
 // and documentation.
 
 keystone.init({
-	'name': 'TaxKnowledge Admin',
+	'name': 'TaxNewsBackend',
 	'brand': 'TaxKnowledge Admin',
 	'sass': 'public',
 	'static': 'public',

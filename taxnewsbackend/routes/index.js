@@ -18,47 +18,47 @@
  * http://expressjs.com/api.html#app.VERB
  */
 
-var keystone = require('keystone');
-var middleware = require('./middleware');
+var keystone = require("keystone");
+var middleware = require("./middleware");
 var importRoutes = keystone.importer(__dirname);
 
 // Common Middleware
-keystone.pre('routes', middleware.initLocals);
-keystone.pre('render', middleware.flashMessages);
+keystone.pre("routes", middleware.initLocals);
+keystone.pre("render", middleware.flashMessages);
 
 // Import Route Controllers
 var routes = {
-	views: importRoutes('./views'),
-	api: importRoutes('./api'),
+	views: importRoutes("./views"),
+	api: importRoutes("./api")
 };
 
 // Setup Route Bindings
-exports = module.exports = function (app) {
+exports = module.exports = function(app) {
 	// Views
 	// app.get('/', routes.views.index);
-	app.get('/', routes.api.home.getHomeDataList);
+	app.get("/", routes.api.home.getHomeDataList);
 
 	// API
-	app.all('/api*', keystone.middleware.cors);
-	// app.options('/api*', function (req, res) {
-	// 	res.header(
-	// 		'Access-Control-Allow-Headers',
-	// 		'Content-Type, Authorization, X-XSRF-TOKEN'
-	// 	);
-	// 	res.sendStatus(200);
-	// });
-	app.get('/api/home', routes.api.home.getHomeDataList);
-	app.get('/api/:category', routes.api.masterList.getArticleList); // /api/1
+	app.all("/api*", keystone.middleware.cors);
+	app.options("/api*", function(req, res) {
+		res.header(
+			"Access-Control-Allow-Headers",
+			"Content-Type, Authorization, X-XSRF-TOKEN"
+		);
+		res.sendStatus(200);
+	});
+	app.get("/api/home", routes.api.home.getHomeDataList);
+	app.get("/api/:category", routes.api.masterList.getArticleList); // /api/1
 	app.get(
-		'/api/:category/:articleId',
+		"/api/:category/:articleId",
 		routes.api.articleById.getArticleByCategory
 	); // /api/1/sfasdf287928379x
 	app.get(
-		'/api/next/:category/:lastArticleDate',
+		"/api/next/:category/:lastArticleDate",
 		routes.api.masterList.getNextArticleList
 	);
-	app.get('/feed', routes.api.home.getFeedDataList);
-	app.get('/groupjoin', routes.api.groupJoin.getLinkList);
+	app.get("/feed", routes.api.home.getFeedDataList);
+	app.get("/groupjoin", routes.api.groupJoin.getLinkList);
 	// app.get('/api/search?', routes.api.textSearch.searchArticle);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
