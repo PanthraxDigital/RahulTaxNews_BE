@@ -51,6 +51,7 @@ exports = module.exports = function (app) {
 		routes.api.masterList.getNextArticleList
 	);
 	app.get('/feed', routes.api.home.getFeedDataList);
+	app.get('/groupjoin', routes.api.groupJoin.getLinkList);
 	// app.get('/api/search?', routes.api.textSearch.searchArticle);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
