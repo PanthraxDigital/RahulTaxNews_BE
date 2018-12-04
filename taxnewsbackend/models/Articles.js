@@ -12,26 +12,34 @@ var myStorage = new keystone.Storage({
 });
 
 articleList.add({
-	category: {
-		type: Types.Select,
+	// category: {
+	// 	type: Types.Select,
+	// 	required: true,
+	// 	initial: true,
+	// 	many: true,
+	// 	options: [
+	// 		{ value: '0', label: 'From the Desk' },
+	// 		{ value: '1', label: 'TopStories' },
+	// 		{ value: '2', label: 'IncomeTax' },
+	// 		{ value: '3', label: 'GST' },
+	// 		{ value: '4', label: 'VAT' },
+	// 		{ value: '5', label: 'Excise' },
+	// 		{ value: '6', label: 'Custom' },
+	// 		{ value: '7', label: 'NBFC/RBI' },
+	// 		{ value: '8', label: 'SEBI' },
+	// 		{ value: '9', label: 'Company Law' },
+	// 		{ value: '10', label: 'ICAI' },
+	// 		{ value: '11', label: 'Finance ACT & Budget' },
+	// 		{ value: '12', label: 'General Taxation' },
+	// 		{ value: '13', label: 'More Others' },
+	// 	],
+	// },
+	categories: {
+		type: Types.Relationship,
+		ref: 'MenuCategory',
 		required: true,
 		initial: true,
-		options: [
-			{ value: '0', label: 'From the Desk' },
-			{ value: '1', label: 'TopStories' },
-			{ value: '2', label: 'IncomeTax' },
-			{ value: '3', label: 'GST' },
-			{ value: '4', label: 'VAT' },
-			{ value: '5', label: 'Excise' },
-			{ value: '6', label: 'Custom' },
-			{ value: '7', label: 'NBFC/RBI' },
-			{ value: '8', label: 'SEBI' },
-			{ value: '9', label: 'Company Law' },
-			{ value: '10', label: 'ICAI' },
-			{ value: '11', label: 'Finance ACT & Budget' },
-			{ value: '12', label: 'General Taxation' },
-			{ value: '13', label: 'More Others' },
-		],
+		many: true,
 	},
 	title: {
 		type: String,
@@ -49,7 +57,6 @@ articleList.add({
 		height: 400,
 	},
 	attachmentLink: { type: Types.Text, required: false },
-	// image: { type: Types.File, storage: myStorage, require: false }, // local storage
 	imageLink: { type: Types.Text, required: false },
 	uploadImage: { type: Types.CloudinaryImage },
 	articleDate: {
