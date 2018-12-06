@@ -67,7 +67,7 @@ exports = module.exports = function (app) {
 	);
 	app.get('/feed', routes.api.home.getFeedDataList);
 	app.get('/groupjoin', routes.api.groupJoin.getLinkList);
-	// app.get('/api/search?', routes.api.textSearch.searchArticle);
+	app.get('/search?', routes.api.textSearch.searchArticle); // http://0.0.0.0:4002/search?searchText="court%20order"
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
