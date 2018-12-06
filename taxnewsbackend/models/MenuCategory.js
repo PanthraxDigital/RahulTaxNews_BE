@@ -9,9 +9,18 @@ menuCategory.add({
 		type: String,
 		required: true,
 		initial: true,
+	},
+	menuId: {
+		type: String,
+		required: true,
+		initial: true,
 		index: true,
 	},
 });
+// menuCategory.schema.pre('save', function (next) {
 
-menuCategory.defaultColumns = 'menu';
+// });
+
+menuCategory.defaultColumns = 'menuId, menu';
+menuCategory.defaultSort = 'menuId';
 menuCategory.register();
