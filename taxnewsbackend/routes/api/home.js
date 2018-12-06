@@ -5,23 +5,24 @@ var moment = require('moment');
 // SINGLE API > Muitple DB call > combine result > RESPONSE
 exports.getHomeDataList = function (req, res) {
 	let dataResult = [];
-	HomeDataResult.getDataResult(0) // From the Desk
+	HomeDataResult.getDataResult('5c07ddbccc1f9907914e0030') // From the Desk
 		.then(function (result) {
+			console.log('result ' + result);
 			dataResult.push(result);
-			return HomeDataResult.getDataResult(1); // Top Stories
+			// return HomeDataResult.getDataResult(1); // Top Stories
 		})
-		.then(function (result) {
-			dataResult.push(result);
-			return HomeDataResult.getDataResult(2); // Income Tax
-		})
-		.then(function (result) {
-			dataResult.push(result);
-			return HomeDataResult.getDataResult(3); // GST
-		})
-		.then(function (result) {
-			dataResult.push(result);
-			return HomeDataResult.getDataResult(12); // General Taxation
-		})
+		// .then(function (result) {
+		// 	dataResult.push(result);
+		// 	return HomeDataResult.getDataResult(2); // Income Tax
+		// })
+		// .then(function (result) {
+		// 	dataResult.push(result);
+		// 	return HomeDataResult.getDataResult(3); // GST
+		// })
+		// .then(function (result) {
+		// 	dataResult.push(result);
+		// 	return HomeDataResult.getDataResult(12); // General Taxation
+		// })
 		.then(function (result) {
 			dataResult.push(result);
 			res.json({
@@ -100,7 +101,9 @@ exports.getFeedDataList = function (req, res) {
 						title: data.title,
 						description: data.subTitle.toString().substring(0, 250),
 						date: data.articleDate,
-						url: `http://www.taxknowledge.in${getArticleURL(parseInt(data.category))}/${data._id}`,
+						url: `http://www.taxknowledge.in${getArticleURL(
+							parseInt(data.category)
+						)}/${data._id}`,
 					});
 				})
 			);

@@ -1,10 +1,10 @@
 var keystone = require('keystone');
 var articleList = keystone.list('Articles');
-
+var Types = keystone.Field.Types;
 exports.getDataResult = function (_category) {
 	return new Promise(function (resolve) {
 		articleList.model
-			.find({ category: _category })
+			.find({ categories: { $eq: _category } })
 			.sort({ articleDate: -1 }) // descending order
 			.limit(4) // top 4 (TODO : ADS)
 			.select({

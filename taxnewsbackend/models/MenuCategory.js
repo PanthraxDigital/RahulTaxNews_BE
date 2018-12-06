@@ -1,7 +1,9 @@
 var keystone = require('keystone');
-
+// http://0.0.0.0:4002/keystone/menu-categories
 var menuCategory = new keystone.List('MenuCategory', {
 	map: { name: 'menu' },
+	nodelete: true,
+	hidden: true,
 });
 
 menuCategory.add({
@@ -17,9 +19,6 @@ menuCategory.add({
 		index: true,
 	},
 });
-// menuCategory.schema.pre('save', function (next) {
-
-// });
 
 menuCategory.defaultColumns = 'menuId, menu';
 menuCategory.defaultSort = 'menuId';
