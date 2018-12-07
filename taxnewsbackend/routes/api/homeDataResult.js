@@ -1,17 +1,21 @@
 var keystone = require('keystone');
 var articleList = keystone.list('Articles');
 var Types = keystone.Field.Types;
+var commonUtility = require('../../utility/common');
+
 exports.getDataResult = function (_category) {
+
+	console.log('object id ' + commonUtility.getMenuMappingDev(_category));
 	return new Promise(function (resolve) {
 		articleList.model
-			.find({ categories: { $eq: _category } })
+			.find({ categories: { $in: [commonUtility.getMenuMappingDev(_category)] } })
 			.sort({ articleDate: -1 }) // descending order
 			.limit(4) // top 4 (TODO : ADS)
 			.select({
 				_id: 1,
 				title: 1,
 				subTitle: 1,
-				category: 1,
+				categories: 1,
 				uploadImage: 1,
 				articleDate: 1,
 				imageLink: 1,
@@ -35,7 +39,7 @@ exports.getFeedDataResult = function (_category) {
 	return new Promise(function (resolve) {
 		articleList.model
 			.find({
-				category: _category,
+				categories: { $in: [commonUtility.getMenuMappingDev(_category)] },
 				articleDate: {
 					$eq: dateVal,
 				},
@@ -46,7 +50,7 @@ exports.getFeedDataResult = function (_category) {
 				_id: 1,
 				title: 1,
 				subTitle: 1,
-				category: 1,
+				categories: 1,
 				articleDate: 1,
 			})
 			.exec(function (err, data) {

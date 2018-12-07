@@ -1,28 +1,29 @@
 var HomeDataResult = require('./homeDataResult');
 var RSSFactory = require('rss');
 var moment = require('moment');
+var commonUtility = require('../../utility/common');
 
 // SINGLE API > Muitple DB call > combine result > RESPONSE
 exports.getHomeDataList = function (req, res) {
 	let dataResult = [];
-	HomeDataResult.getDataResult('5c07ddbccc1f9907914e0030') // From the Desk
+	HomeDataResult.getDataResult(0) // From the Desk
 		.then(function (result) {
-			console.log('result ' + result);
+			// console.log('result ' + result);
 			dataResult.push(result);
-			// return HomeDataResult.getDataResult(1); // Top Stories
+			return HomeDataResult.getDataResult(1); // Top Stories
 		})
-		// .then(function (result) {
-		// 	dataResult.push(result);
-		// 	return HomeDataResult.getDataResult(2); // Income Tax
-		// })
-		// .then(function (result) {
-		// 	dataResult.push(result);
-		// 	return HomeDataResult.getDataResult(3); // GST
-		// })
-		// .then(function (result) {
-		// 	dataResult.push(result);
-		// 	return HomeDataResult.getDataResult(12); // General Taxation
-		// })
+		.then(function (result) {
+			dataResult.push(result);
+			return HomeDataResult.getDataResult(2); // Income Tax
+		})
+		.then(function (result) {
+			dataResult.push(result);
+			return HomeDataResult.getDataResult(3); // GST
+		})
+		.then(function (result) {
+			dataResult.push(result);
+			return HomeDataResult.getDataResult(12); // General Taxation
+		})
 		.then(function (result) {
 			dataResult.push(result);
 			res.json({
@@ -101,7 +102,7 @@ exports.getFeedDataList = function (req, res) {
 						title: data.title,
 						description: data.subTitle.toString().substring(0, 250),
 						date: data.articleDate,
-						url: `http://www.taxknowledge.in${getArticleURL(
+						url: `http://www.taxknowledge.in${commonUtility.getArticleURL(
 							parseInt(data.category)
 						)}/${data._id}`,
 					});
@@ -114,36 +115,3 @@ exports.getFeedDataList = function (req, res) {
 			console.log(err);
 		});
 };
-
-function getArticleURL (_index) {
-	switch (_index) {
-		case 0:
-			return '/from-desk';
-		case 1:
-			return '/top-stories';
-		case 2:
-			return '/income-tax';
-		case 3:
-			return '/gst';
-		case 4:
-			return '/vat-cst';
-		case 5:
-			return '/excise';
-		case 6:
-			return '/custom';
-		case 7:
-			return '/nbfc-rbi';
-		case 8:
-			return '/sebi';
-		case 9:
-			return '/roc-company-law';
-		case 10:
-			return '/icai';
-		case 11:
-			return '/finance-budget';
-		case 12:
-			return '/generalTax';
-		case 13:
-			return '/others';
-	}
-}

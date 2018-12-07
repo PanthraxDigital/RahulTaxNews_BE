@@ -37,16 +37,6 @@ exports = module.exports = function (app) {
 	// Views
 	// app.get('/', routes.views.index);
 	app.get('/', routes.api.home.getHomeDataList);
-
-	// API
-	// app.all("/api*", keystone.middleware.cors);
-	// app.options("/api*", function(req, res) {
-	// 	res.header(
-	// 		"Access-Control-Allow-Headers",
-	// 		"Content-Type, Authorization, X-XSRF-TOKEN"
-	// 	);
-	// 	res.sendStatus(200);
-	// });
 	app.all('/*', keystone.middleware.cors);
 	app.options('/*', function (req, res) {
 		res.header(
