@@ -32,7 +32,6 @@ exports.getArticleURL = function (_index) {
 };
 
 exports.getMenuMappingDev = function (_menuCategory) {
-	console.log('category inside menu map ' + _menuCategory);
 	switch (parseInt(_menuCategory)) {
 		case 0: // from desk
 			return '5c09f2d2ad83e006a5cbd25d';

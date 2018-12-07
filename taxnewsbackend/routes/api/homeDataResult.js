@@ -5,7 +5,6 @@ var commonUtility = require('../../utility/common');
 
 exports.getDataResult = function (_category) {
 
-	console.log('object id ' + commonUtility.getMenuMappingDev(_category));
 	return new Promise(function (resolve) {
 		articleList.model
 			.find({ categories: { $in: [commonUtility.getMenuMappingDev(_category)] } })

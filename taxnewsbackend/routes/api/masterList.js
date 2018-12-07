@@ -3,10 +3,6 @@ var articleList = keystone.list('Articles');
 var commonUtility = require('../../utility/common');
 
 exports.getArticleList = function (req, res) {
-	console.log('category ' + req.params.category);
-	console.log(
-		'objectId ' + commonUtility.getMenuMappingDev(req.params.category)
-	);
 	articleList.model
 		// .find({ category: req.params.category })
 		.find({
