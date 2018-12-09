@@ -57,32 +57,30 @@ articleList.autocreate = true;
 articleList.defaultSort = '-articleDate';
 articleList.register();
 
-
 /* NOTE : We will go with Single collection as :
 - we have similar fields
 - ease the Search Functionality, which is the major feature
 */
 
-
 // category: {
-	// 	type: Types.Select,
-	// 	required: true,
-	// 	initial: true,
-	// 	many: true,
-	// 	options: [
-	// 		{ value: '0', label: 'From the Desk' },
-	// 		{ value: '1', label: 'TopStories' },
-	// 		{ value: '2', label: 'IncomeTax' },
-	// 		{ value: '3', label: 'GST' },
-	// 		{ value: '4', label: 'VAT' },
-	// 		{ value: '5', label: 'Excise' },
-	// 		{ value: '6', label: 'Custom' },
-	// 		{ value: '7', label: 'NBFC/RBI' },
-	// 		{ value: '8', label: 'SEBI' },
-	// 		{ value: '9', label: 'Company Law' },
-	// 		{ value: '10', label: 'ICAI' },
-	// 		{ value: '11', label: 'Finance ACT & Budget' },
-	// 		{ value: '12', label: 'General Taxation' },
-	// 		{ value: '13', label: 'More Others' },
-	// 	],
-	// },
+// 	type: Types.Select,
+// 	required: true,
+// 	initial: true,
+// 	many: true,
+// 	options: [
+// 		{ value: '0', label: 'From the Desk' },
+// 		{ value: '1', label: 'TopStories' },
+// 		{ value: '2', label: 'IncomeTax' },
+// 		{ value: '3', label: 'GST' },
+// 		{ value: '4', label: 'VAT' },
+// 		{ value: '5', label: 'Excise' },
+// 		{ value: '6', label: 'Custom' },
+// 		{ value: '7', label: 'NBFC/RBI' },
+// 		{ value: '8', label: 'SEBI' },
+// 		{ value: '9', label: 'Company Law' },
+// 		{ value: '10', label: 'ICAI' },
+// 		{ value: '11', label: 'Finance ACT & Budget' },
+// 		{ value: '12', label: 'General Taxation' },
+// 		{ value: '13', label: 'More Others' },
+// 	],
+// },

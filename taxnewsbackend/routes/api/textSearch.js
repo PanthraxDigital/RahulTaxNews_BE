@@ -10,6 +10,7 @@ exports.searchArticle = function (req, res) {
 		.populate('author', 'name') // Reference to User collection, and get only the Name of the User
 		.populate('categories', 'menu')
 		.select('_id title subTitle articleDate author categories link description')
+		.limit(20)
 		.exec(function (err, data) {
 			if (err) return res.json({ err: err });
 			res.json({
@@ -17,3 +18,6 @@ exports.searchArticle = function (req, res) {
 			});
 		});
 };
+
+
+// TODO : pagination for getting next set of records 
