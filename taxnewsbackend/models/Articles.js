@@ -52,7 +52,7 @@ articleList.add({
 	},
 });
 
-articleList.defaultColumns = 'category,title,articleDate,author';
+articleList.defaultColumns = 'category,title,articleDate';
 articleList.autocreate = true;
 articleList.defaultSort = '-articleDate';
 articleList.register();
