@@ -4,10 +4,9 @@ var commonUtility = require('../../utility/common');
 
 exports.getArticleList = function (req, res) {
 	articleList.model
-		// .find({ category: req.params.category })
 		.find({
 			categories: {
-				$in: [commonUtility.getMenuMappingDev(req.params.category)],
+				$in: [commonUtility.getMenuMappingProd(req.params.category)],
 			},
 		})
 		.sort('-articleDate')
@@ -28,7 +27,7 @@ exports.getNextArticleList = (req, res) => {
 	articleList.model
 		.find({
 			categories: {
-				$in: [commonUtility.getMenuMappingDev(req.params.category)],
+				$in: [commonUtility.getMenuMappingProd(req.params.category)],
 			},
 		})
 		.where('articleDate')

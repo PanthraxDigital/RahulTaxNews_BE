@@ -50,7 +50,7 @@ exports = module.exports = function (app) {
 	app.get(
 		'/api/:category/:articleId',
 		routes.api.articleById.getArticleByCategory
-	); // /api/1/sfasdf287928379x
+	); // /api/1/5c0e3a1634f675070e011831
 	app.get(
 		'/api/next/:category/:lastArticleDate',
 		routes.api.masterList.getNextArticleList

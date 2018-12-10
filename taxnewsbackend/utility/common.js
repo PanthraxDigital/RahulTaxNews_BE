@@ -28,11 +28,13 @@ exports.getArticleURL = function (_index) {
 			return '/generalTax';
 		case 13:
 			return '/others';
+		case 14:
+			return '/hidden-tab';
 	}
 };
 
 // Production
-exports.getMenuMappingDev = function (_menuCategory) {
+exports.getMenuMappingProd = function (_menuCategory) {
 	switch (parseInt(_menuCategory)) {
 		case 0: // from desk
 			return '5c0da7b258920b125efbed47';
@@ -64,6 +66,44 @@ exports.getMenuMappingDev = function (_menuCategory) {
 			return '5c0da95f58920b125efbed54';
 		case 14: // hidden Tab
 			return '5c0da97958920b125efbed55';
+		default:
+			return 'NA';
+	}
+};
+
+// Development
+exports.getMenuMappingDev = function (_menuCategory) {
+	switch (parseInt(_menuCategory)) {
+		case 0: // from desk
+			return '5c09f2d2ad83e006a5cbd25d';
+		case 1: // top stories
+			return '5c07dd78cc1f9907914e002e';
+		case 2: // income tax
+			return '5c07ddafcc1f9907914e002f';
+		case 3: // gst
+			return '5c07ddbccc1f9907914e0030';
+		case 4: // vat-cst
+			return '5c07ddd0cc1f9907914e0031';
+		case 5: // excise
+			return '5c07ddf1cc1f9907914e0032';
+		case 6: // custom
+			return '5c07ddfccc1f9907914e0033';
+		case 7: // nbfc-rbi
+			return '5c07de0acc1f9907914e0034';
+		case 8: // sebi
+			return '5c07de14cc1f9907914e0035';
+		case 9: // roc-company-law
+			return '5c07de22cc1f9907914e0036';
+		case 10: // icai
+			return '5c07de35cc1f9907914e0037';
+		case 11: // finance-budge
+			return '5c09f46337906706d192c052';
+		case 12: // general tax
+			return '5c09f47a37906706d192c053';
+		case 13: // others
+			return '5c09f48837906706d192c054';
+		case 14: // hidden Tab
+			return '5c0e37e186a37b0669ebfaa4';
 		default:
 			return 'NA';
 	}

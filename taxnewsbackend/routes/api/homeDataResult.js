@@ -7,7 +7,7 @@ exports.getDataResult = function (_category) {
 
 	return new Promise(function (resolve) {
 		articleList.model
-			.find({ categories: { $in: [commonUtility.getMenuMappingDev(_category)] } })
+			.find({ categories: { $in: [commonUtility.getMenuMappingProd(_category)] } })
 			.sort({ articleDate: -1 }) // descending order
 			.limit(4) // top 4 (TODO : ADS)
 			.select({
@@ -38,7 +38,7 @@ exports.getFeedDataResult = function (_category) {
 	return new Promise(function (resolve) {
 		articleList.model
 			.find({
-				categories: { $in: [commonUtility.getMenuMappingDev(_category)] },
+				categories: { $in: [commonUtility.getMenuMappingProd(_category)] },
 				articleDate: {
 					$eq: dateVal,
 				},
