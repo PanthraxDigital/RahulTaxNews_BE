@@ -37,8 +37,8 @@ exports = module.exports = function (app) {
 	// Views
 	// app.get('/', routes.views.index);
 	app.get('/', routes.api.home.getHomeDataList);
-	app.get('/search', keystone.middleware.cors);
-	app.all('/*', keystone.middleware.cors);
+	// app.get('/search', keystone.middleware.cors);
+	// app.all('/*', keystone.middleware.cors);
 	app.options('/*', function (req, res) {
 		res.header(
 			'Access-Control-Allow-Headers',
