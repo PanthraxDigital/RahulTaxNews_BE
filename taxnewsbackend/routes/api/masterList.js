@@ -7,6 +7,7 @@ exports.getArticleList = function (req, res) {
 		.find({
 			categories: {
 				$in: [commonUtility.getMenuMappingProd(req.params.category)],
+				//$in: [commonUtility.getMenuMappingDev(req.params.category)],
 			},
 		})
 		.sort('-articleDate')
@@ -28,6 +29,7 @@ exports.getNextArticleList = (req, res) => {
 		.find({
 			categories: {
 				$in: [commonUtility.getMenuMappingProd(req.params.category)],
+				//$in: [commonUtility.getMenuMappingDev(req.params.category)],
 			},
 		})
 		.where('articleDate')

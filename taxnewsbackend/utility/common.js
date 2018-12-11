@@ -108,3 +108,10 @@ exports.getMenuMappingDev = function (_menuCategory) {
 			return 'NA';
 	}
 };
+
+/**
+ * files in which to Change as per the .env
+ * articleById
+ * homeDataResult
+ * masterList
+ */

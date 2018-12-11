@@ -9,7 +9,7 @@ exports.searchArticle = function (req, res) {
 		.find({ $text: { $search: req.query.searchText } })
 		.populate('author', 'name') // Reference to User collection, and get only the Name of the User
 		.populate('categories', 'menu')
-		.select('_id title subTitle articleDate author categories link description')
+		.select('_id title subTitle articleDate author categories')
 		.limit(20)
 		.exec(function (err, data) {
 			if (err) return res.json({ err: err });
@@ -20,4 +20,4 @@ exports.searchArticle = function (req, res) {
 };
 
 
-// TODO : pagination for getting next set of records 
+// TODO : pagination for getting next set of records

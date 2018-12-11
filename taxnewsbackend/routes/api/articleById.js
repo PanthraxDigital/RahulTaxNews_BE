@@ -8,6 +8,7 @@ exports.getArticleByCategory = function (req, res) {
 		.where({
 			categories: {
 				$in: [commonUtility.getMenuMappingProd(req.params.category)],
+				//$in: [commonUtility.getMenuMappingDev(req.params.category)],
 			},
 		})
 		.populate('author', 'name') // Reference to User collection, and get only the Name of the User
