@@ -13,7 +13,7 @@
     "keystone-rss": "^1.0.6",
     "lodash": "^4.13.1",
     "moment": "^2.17.1",
-    "mongoose": "^5.2.9",
+    "mongoose": "^5.7.5",
     "node-sass": "4.5.0",
     "node-sass-middleware": "^0.11.0",
     "rss": "^1.2.2"
